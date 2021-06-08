@@ -11,3 +11,14 @@ const timeout = function (s) {
 // https://forkify-api.herokuapp.com/v2
 
 ///////////////////////////////////////
+const showRecipe = async () => {
+  try {
+    const res = await fetch(
+      'https://forkify-api.herokuapp.com/v2/recipes/fb78937c-f034-4055-8fe7-45759c506cec'
+    );
+    const data = await res.json();
+    console.log(res, data);
+  } catch (err) {
+    alert(err);
+  }
+};
