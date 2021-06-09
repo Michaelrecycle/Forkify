@@ -1,7 +1,7 @@
 # Forkify
 Javascript 2021 Mastery Udemy course
 
-This is an udemy course project taught by Jonas Schmedtmann (https://www.udemy.com/course/the-complete-javascript-course/), which I highly recommend to anyone who wants to achieve expertise in javascript.
+This is an udemy course project taught by Jonas Schmedtmann (https://www.udemy.com/course/the-complete-javascript-course/), which I highly recommend to anyone who wants to advance in Javascript.
 
 The main concepts utilized in this project are:
 
