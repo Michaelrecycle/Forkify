@@ -1,6 +1,8 @@
 import * as model from './model.js';
 import recipeView from './views/recipeView';
 
+// Handle events
+
 const controlRecipes = async function () {
   try {
     const id = window.location.hash.slice(1);
@@ -14,9 +16,10 @@ const controlRecipes = async function () {
     // Rendering recipe
     recipeView.render(model.state.recipe);
   } catch (err) {
-    alert(err);
+    recipeView.renderError();
   }
 };
-['hashChange', 'load'].forEach(ev =>
-  window.addEventListener(ev, controlRecipes)
-);
+const init = () => {
+  recipeView.addHandlerRender(controlRecipes);
+};
+init();
