@@ -6,9 +6,12 @@ This is an udemy course project taught by Jonas Schmedtmann (https://www.udemy.c
 The main concepts utilized in this project are:
 
 1. The MVC pattern JS implementation (using the JS classes, private & protected fields, inheritence, methods etc.)
-2. The async fetching (handling async code with await/async, handling success and error) 
-3. Event publisher/subscriber pattern (to allow event handling in the controller and the views)
-4. Configuration and helper functions files in the project structure 
-5. Parcel to run and build the app
+    * Model -> contains state and side effects
+    * Controller -> handles events (gets the data, calls renders, publishes events)
+    * View -> generates markup
+3. The async fetching (handling async code with await/async, handling success and error) 
+4. Event publisher/subscriber pattern (to allow event handling in the controller and the views)
+5. Configuration and helper functions files in the project structure 
+6. Parcel to run and build the app
 
 
