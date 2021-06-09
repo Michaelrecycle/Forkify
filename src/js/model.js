@@ -40,6 +40,7 @@ export const loadSearchResults = async query => {
         id: rec.id,
         title: rec.title,
         sourceUrl: rec.source_url,
+        publisher: rec.publisher,
         image: rec.image_url,
       };
     });
