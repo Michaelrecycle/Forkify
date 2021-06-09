@@ -1,9 +1,6 @@
 import * as model from './model.js';
 import recipeView from './views/recipeView';
 
-// https://forkify-api.herokuapp.com/v2
-const API = '744a5308-471f-4574-b476-7360b554d638';
-
 const controlRecipes = async function () {
   try {
     const id = window.location.hash.slice(1);
