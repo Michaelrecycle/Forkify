@@ -1,4 +1,5 @@
 import * as model from './model.js';
+import bookMarksView from './views/bookMarksView.js';
 import paginationView from './views/paginationView.js';
 import recipeView from './views/recipeView';
 import resultsView from './views/resultsView.js';
@@ -12,6 +13,7 @@ const controlRecipes = async function () {
     if (!id) return;
 
     resultsView.update(model.getSearchResultsPage());
+    bookMarksView.update(model.state.bookMarks);
 
     // Loading recipe
     recipeView.renderSpinner();
@@ -63,6 +65,8 @@ const controlServings = newServings => {
 };
 
 const controlAddBookmark = () => {
+  //add or remove a book mark
+
   if (model.state.recipe.bookmarked) {
     model.removeBookmark(model.state.recipe);
   } else {
@@ -70,6 +74,9 @@ const controlAddBookmark = () => {
   }
 
   recipeView.update(model.state.recipe);
+
+  // render bookamrks
+  bookMarksView.render(model.state.bookMarks);
 };
 
 const init = () => {
