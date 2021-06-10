@@ -13,8 +13,8 @@ const controlRecipes = async function () {
     if (!id) return;
 
     resultsView.update(model.getSearchResultsPage());
-    bookMarksView.update(model.state.bookMarks);
 
+    bookMarksView.update(model.state.bookMarks);
     // Loading recipe
     recipeView.renderSpinner();
 
@@ -79,7 +79,12 @@ const controlAddBookmark = () => {
   bookMarksView.render(model.state.bookMarks);
 };
 
+const controlBookmarks = () => {
+  bookMarksView.render(model.state.bookMarks);
+};
+
 const init = () => {
+  bookMarksView.addHandlerRender(controlBookmarks);
   recipeView.addHandlerRender(controlRecipes);
   searchView.addHandlerSearch(controlSearchResults);
   recipeView.addHandlerAddBookmark(controlAddBookmark);
