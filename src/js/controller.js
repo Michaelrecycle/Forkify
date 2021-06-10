@@ -11,6 +11,8 @@ const controlRecipes = async function () {
     const id = window.location.hash.slice(1);
     if (!id) return;
 
+    resultsView.update(model.getSearchResultsPage());
+
     // Loading recipe
     recipeView.renderSpinner();
 
@@ -56,7 +58,8 @@ const controlServings = newServings => {
 
   model.updateServings(newServings);
 
-  recipeView.render(model.state.recipe);
+  // recipeView.render(model.state.recipe);
+  recipeView.update(model.state.recipe); // only update text and attributes in the DOM
 };
 
 const init = () => {

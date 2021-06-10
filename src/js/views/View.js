@@ -15,6 +15,39 @@ export default class View {
     this._parentElement.innerHTML = '';
   }
 
+  update(data) {
+    if (!data || (Array.isArray(data) && data.length === 0))
+      return this.renderError();
+    this._data = data;
+    const newMarkup = this._generateMarkup();
+
+    // Create a virtual dom
+    const newDOM = document.createRange().createContextualFragment(newMarkup);
+    const newElements = Array.from(newDOM.querySelectorAll('*'));
+
+    const curElements = Array.from(this._parentElement.querySelectorAll('*'));
+
+    newElements.forEach((newEl, i) => {
+      const curEl = curElements[i];
+
+      // Take the current element, check if it has text in it and then compare it to the new element
+      // to see if they are different
+      if (
+        newEl.firstChild?.nodeValue.trim() !== '' &&
+        !newEl.isEqualNode(curEl)
+      ) {
+        curEl.textContent = newEl.textContent;
+      }
+
+      // update changed attributes
+      if (!newEl.isEqualNode(curEl)) {
+        Array.from(newEl.attributes).forEach(attr =>
+          curEl.setAttribute(attr.name, attr.value)
+        );
+      }
+    });
+  }
+
   renderSpinner() {
     const markup = `<div class="spinner">
       <svg>
