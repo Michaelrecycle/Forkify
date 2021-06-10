@@ -14,4 +14,5 @@ The main concepts utilized in this project are:
 5. Configuration and helper functions files in the project structure 
 6. Parcel to run and build the app
 
+Other cool stuff is using the closest() function which is similar to querySelector except it's top down (parent), and using data-something in the html elements to extract the information in js. Also a quick way to convert a number using the unary operator + before an object (ie +"2"). 
 
