@@ -3,7 +3,7 @@ Javascript 2021 Mastery Udemy course
 
 This is an udemy course project taught by Jonas Schmedtmann (https://www.udemy.com/course/the-complete-javascript-course/), which I highly recommend to anyone who wants to advance in Javascript.
 
-The main concepts utilized in this project are:
+# The main concepts utilized in this project are:
 
 1. The MVC pattern JS implementation (using the JS classes, private & protected fields, inheritence, methods etc.)
     * Model -> contains state and side effects
@@ -14,5 +14,8 @@ The main concepts utilized in this project are:
 5. Configuration and helper functions files in the project structure 
 6. Parcel to run and build the app
 
-Other cool stuff is using the closest() function which is similar to querySelector except it's top down (parent), and using data-something in the html elements to extract the information in js. Also a quick way to convert a number using the unary operator + before an object (ie +"2"). 
+# Other cool stuff
+* Using the closest() function which is similar to querySelector except it's top down (parent),
+* Using attribute data-something in the html elements to extract the information in js. 
+* Quick way to convert a number using the unary operator + before an object (ie +"2"). 
 
