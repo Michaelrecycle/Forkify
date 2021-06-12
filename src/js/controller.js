@@ -1,4 +1,5 @@
 import * as model from './model.js';
+import addRecipeView from './views/addRecipeView.js';
 import bookMarksView from './views/bookMarksView.js';
 import paginationView from './views/paginationView.js';
 import recipeView from './views/recipeView';
@@ -83,6 +84,8 @@ const controlBookmarks = () => {
   bookMarksView.render(model.state.bookMarks);
 };
 
+const controlAddRecipe = newRecipe => {};
+
 const init = () => {
   bookMarksView.addHandlerRender(controlBookmarks);
   recipeView.addHandlerRender(controlRecipes);
@@ -90,5 +93,6 @@ const init = () => {
   recipeView.addHandlerAddBookmark(controlAddBookmark);
   paginationView.addHandlerClick(controlPagination);
   recipeView.addHandlerUpdateServings(controlServings);
+  recipeView.addHandlerUpload(controlAddRecipe);
 };
 init();
