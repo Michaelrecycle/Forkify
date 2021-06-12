@@ -1,3 +1,4 @@
+import { MODAL_CLOSE_SEC } from './config.js';
 import * as model from './model.js';
 import addRecipeView from './views/addRecipeView.js';
 import bookMarksView from './views/bookMarksView.js';
@@ -84,7 +85,27 @@ const controlBookmarks = () => {
   bookMarksView.render(model.state.bookMarks);
 };
 
-const controlAddRecipe = newRecipe => {};
+const controlAddRecipe = async newRecipe => {
+  try {
+    addRecipeView.renderSpinner();
+    await model.uploadRecipe(newRecipe);
+
+    recipeView.render(model.state.recipe);
+
+    addRecipeView.renderMessage();
+
+    bookMarksView.render(model.state.bookMarks);
+
+    // Change id in thw URL
+    window.history.pushState(null, '', `#${model.state.recipe.id}`);
+
+    setTimeout(function () {
+      addRecipeView.toggleWindow();
+    }, MODAL_CLOSE_SEC * 1000);
+  } catch (error) {
+    addRecipeView.renderError(error.message);
+  }
+};
 
 const init = () => {
   bookMarksView.addHandlerRender(controlBookmarks);
@@ -93,6 +114,6 @@ const init = () => {
   recipeView.addHandlerAddBookmark(controlAddBookmark);
   paginationView.addHandlerClick(controlPagination);
   recipeView.addHandlerUpdateServings(controlServings);
-  recipeView.addHandlerUpload(controlAddRecipe);
+  addRecipeView.addHandlerUpload(controlAddRecipe);
 };
 init();

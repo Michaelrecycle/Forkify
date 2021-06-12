@@ -2,6 +2,8 @@ import View from './View';
 
 class AddRecipeView extends View {
   _parentElement = document.querySelector('.upload');
+  _message = 'Recipe was successfully uploaded';
+
   _window = document.querySelector('.add-recipe-window');
   _overlay = document.querySelector('.overlay');
   _btnOpen = document.querySelector('.nav__btn--add-recipe');
@@ -30,11 +32,13 @@ class AddRecipeView extends View {
     this._overlay.addEventListener('click', this.toggleWindow.bind(this));
   }
 
-  addHandlerUpload() {
+  addHandlerUpload(handler) {
     this._parentElement.addEventListener('submit', event => {
       event.preventDefault();
-      const dataArr = [...new FormData(this)];
+
+      const dataArr = [...new FormData(this._parentElement)];
       const data = Object.fromEntries(dataArr);
+      handler(data);
     });
   }
 
